@@ -2,14 +2,14 @@
 
 Para el frontend desarrollé una **vista de cuenta bancaria** que se conecta con la cuenta de prueba creada por el backend. El objetivo principal es **permitir la gestión de depósitos y extracciones**, así como **simular concurrencia**, siguiendo estrictamente el foco del desafío técnico: garantizar la integridad del saldo frente a múltiples operaciones simultáneas.
 
---
+
 
 ## Alcance
 
 La vista se levanta automáticamente utilizando la cuenta de prueba, por lo que no implementé login ni creación de usuarios, ya que quería mantenerme alineada con lo que pedía el enunciado. Me enfoqué en crear una interfaz agradable e intuitiva, donde cada acción refleja en tiempo real la respuesta del backend. Además, incorporé una sección para simular concurrencia, permitiendo tanto valores predeterminados como personalizados, de manera que cualquiera pueda probar distintos escenarios de forma libre y cómoda. 
 Con esta solución, busqué cumplir con el objetivo del desafío, extendiéndome un poco más para mostrar también cómo manejo el diseño y el flujo completo de la aplicación de manera consistente.
 
---
+
 
 ## Tecnologías
 
@@ -29,7 +29,7 @@ Para el frontend seleccioné tecnologías que me permitieran construir una inter
 
 Con esta combinación de tecnologías pude desarrollar un frontend funcional, estético y alineado con el objetivo del desafío, mostrando también una experiencia end to end al integrarlo con el backend y la simulación de concurrencia.
 
---
+
 
 ## Estructura del Frontend
 
@@ -58,7 +58,7 @@ El frontend está organizado para que sea fácil de entender, mantener y expandi
 
 - **App.tsx**: Componente raíz de la aplicación. Envuelve toda la app en ThemeProvider de Material UI para aplicar el tema global, incluye CssBaseline para estilos base consistentes y monta el AppRouter para manejar la navegación.
 
--**main.tsx**: Punto de entrada de la app. Crea el root de React y envuelve la aplicación en StrictMode y BrowserRouter, asegurando navegación basada en rutas y mejores prácticas de React.
+- **main.tsx**: Punto de entrada de la app. Crea el root de React y envuelve la aplicación en StrictMode y BrowserRouter, asegurando navegación basada en rutas y mejores prácticas de React.
 
 
 ## Funcionalidades

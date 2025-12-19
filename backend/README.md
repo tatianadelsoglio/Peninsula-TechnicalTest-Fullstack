@@ -4,7 +4,7 @@ Desde el backend resuelvo la gestión de cuentas y operaciones de depósito y ex
 La solución fue diseñada para responder el problema central planteado en el desafío técnico: **garantizar la integridad del saldo de una cuenta frente a múltiples solicitudes simultáneas**, evitando condiciones de carrera y estados inválidos.
 Para ello, implemente una estrategia de control de concurrencia mediante optimistic locking, priorizando simplicidad, claridad y rendimiento.
 
---
+
 
 ## Alcance
 
@@ -12,7 +12,7 @@ Para el alcance de esta prueba técnica, el sistema **asume autenticación previ
 El mecanismo de login y gestión de usuarios no forma parte del problema central a resolver y fue intencionalmente excluido para mantener el foco en la lógica de concurrencia sobre saldos.
 Con el objetivo de facilitar la ejecución y evaluación del proyecto, se inicializa automáticamente una cuenta de prueba al levantar el backend.
 
---
+
 
 ## Cuenta de Prueba
 
@@ -24,7 +24,7 @@ Al iniciar la aplicación, el backend garantiza la existencia de una cuenta de p
 Si la cuenta no existe, se crea automáticamente. si ya existe, se reutiliza.
 Esto permite ejecutar pruebas y consumir la API desde el inicio.
 
---
+
 
 ## Tecnologías
 
@@ -38,7 +38,7 @@ Asimismo, prioricé tecnologías con las que cuento experiencia práctica y que 
 
 - MongoDB + Mongoose: MongoDB se utiliza como base de datos documental, y Mongoose como ODM para modelar el dominio y facilitar operaciones atómicas y controladas sobre los documentos.
 
---
+
 
 ## Modelo de datos
 
@@ -52,7 +52,7 @@ Cada cuenta contiene:
 
 El campo `version` me permite detectar modificaciones concurrentes sobre el mismo documento y es clave para la estrategia de optimistic locking.
 
---
+
 
 ## Estrategia de consistencia
 
@@ -62,7 +62,7 @@ En cada operación de actualización valida que la versión del documento no hay
 Si la versión no coincide, la operación falla por conflicto de concurrencia.
 Este enfoque permite manejar concurrencia sin bloqueos pesados, manteniendo un buen rendimiento.
 
---
+
 
 ## Manejo de errores
 
@@ -73,7 +73,7 @@ El sistema diferencia entre errores de negocio y errores de concurrencia:
 
 Los errores se comunican de forma clara al cliente mediante mensajes descriptivos.
 
---
+
 
 ## Reintentos y resiliencia
 
@@ -81,7 +81,7 @@ Ante conflictos de concurrencia, el sistema reintenta la operación hasta un má
 
 Esto permite que muchas operaciones concurrentes válidas se resuelvan automáticamente, reduciendo fallos innecesarios sin comprometer la consistencia.
 
---
+
 
 ## Pruebas de concurrencia
 
@@ -116,7 +116,7 @@ En este caso en particular 4 operaciones se aplicaron correctamente, 3 fallaron 
 El resultado fue que dos request llegaron cuando todavía habia saldo suficiente, el resto fallo por regla de negocio, no por concurrencia. No hubo conflicto porque ya no habia saldo.
 
 
---
+
 
 ## Estrategia para evitar deuda técnica
 
@@ -128,7 +128,7 @@ El resultado fue que dos request llegaron cuando todavía habia saldo suficiente
 
 - Evité sobre-ingeniería innecesaria para mantener claridad y simplicidad en un desafío acotado.
 
---
+
 
 ## Requisitos del entorno
 
@@ -143,7 +143,7 @@ Para ejecutar el backend se recomienda tener instalado(son las versiones usadas 
  - MongoDB debe estar corriendo localmente en `mongodb://localhost:27017` para que el backend funcione correctamente.
  - La aplicación utiliza la base de datos `peninsula_test` y la collección `accounts`. Si no se crea de forma manual, al iniciar el backend y al crearse la cuenta de prueba, tanto la base de datos como la collección se crearan automáticamente si no existen.
 
---
+
 
 ## Ejecución
 
@@ -154,4 +154,4 @@ Para ejecutar el backend se recomienda tener instalado(son las versiones usadas 
 Extra:
 Para la ejecucion de scrip de concurrencia por consola: **npx ts-node "./test/ConcurrencyTest.ts"** 
 
---
+
