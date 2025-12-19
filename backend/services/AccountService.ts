@@ -34,6 +34,16 @@ export const getAccountIdByUsername = async (
   return account._id.toString();
 };
 
+export const getAccountByUsername = async (username: string): Promise<IAccount> => {
+  const account = await Account.findOne({ username });
+
+  if (!account) {
+    throw new Error("Cuenta no encontrada");
+  }
+
+  return account;
+};
+
 interface UpdateSaldoParams {
   accountId: string;
   amount: number;

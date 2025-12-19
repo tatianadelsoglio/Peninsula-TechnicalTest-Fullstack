@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./database/Connection";
 import accountRoutes from "./routes/AccountRouter";
@@ -7,6 +8,7 @@ import { initializeTestAccount } from "./services/AccountService";
 dotenv.config(); //cargo variables de entorno
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const startServer = async () => {
