@@ -130,6 +130,21 @@ El resultado fue que dos request llegaron cuando todavía habia saldo suficiente
 
 --
 
+## Requisitos del entorno
+
+Para ejecutar el backend se recomienda tener instalado(son las versiones usadas para este backend):
+
+- **Node.js**: v22.21.1
+- **npm**: 10.2.3
+- **MongoDB**: v8.2.1
+- **MongoDB Compass** (opcional, para explorar la base de datos de forma visual)
+
+**Nota**: 
+ - MongoDB debe estar corriendo localmente en `mongodb://localhost:27017` para que el backend funcione correctamente.
+ - La aplicación utiliza la base de datos `peninsula_test` y la collección `accounts`. Si no se crea de forma manual, al iniciar el backend y al crearse la cuenta de prueba, tanto la base de datos como la collección se crearan automáticamente si no existen.
+
+--
+
 ## Ejecución
 
 1. Estar posicionado en la carpeta backend.
