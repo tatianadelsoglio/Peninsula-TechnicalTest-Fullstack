@@ -154,7 +154,6 @@ Para ejecutar el backend se recomienda tener instalado(son las versiones usadas 
     - `PORT`: puerto del servidor (por defecto `3000`).
 4. Iniciar el servidor: **npm run dev**
 
-Extra:
-Para la ejecucion de scrip de concurrencia por consola: **npx ts-node "./test/ConcurrencyTest.ts"** 
-
-
+Extra - script de concurrencia:
+Con el backend levantado (**npm run dev** en otra terminal) y MongoDB corriendo, ejecutar: **npm run test:concurrency**
+El script requiere el backend en ejecución, ya que dispara requests HTTP reales contra `http://localhost:3000/account/`.
