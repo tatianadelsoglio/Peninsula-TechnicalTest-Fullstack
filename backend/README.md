@@ -2,7 +2,7 @@
 
 Desde el backend resuelvo la gestión de cuentas y operaciones de depósito y extracción de saldo.
 La solución fue diseñada para responder el problema central planteado en el desafío técnico: **garantizar la integridad del saldo de una cuenta frente a múltiples solicitudes simultáneas**, evitando condiciones de carrera y estados inválidos.
-Para ello, implemente una estrategia de control de concurrencia mediante optimistic locking, priorizando simplicidad, claridad y rendimiento.
+Para ello, implementé una estrategia de control de concurrencia mediante optimistic locking, priorizando simplicidad, claridad y rendimiento.
 
 
 
@@ -21,7 +21,7 @@ Al iniciar la aplicación, el backend garantiza la existencia de una cuenta de p
 - Saldo inicial: 0
 - Versión inicial: 0
 
-Si la cuenta no existe, se crea automáticamente. si ya existe, se reutiliza.
+Si la cuenta no existe, se crea automáticamente. Si ya existe, se reutiliza.
 Esto permite ejecutar pruebas y consumir la API desde el inicio.
 
 
@@ -94,26 +94,26 @@ El script simula accesos concurrentes reales sobre la misma cuenta, permitiendo 
 
 El estado final de la cuenta se mantiene siempre consistente, sin saldos negativos.
 
-## Capturas de pruebas de concurrencias ejecutada mediante el script `ConcurrencyTest.ts`.
+## Capturas de pruebas de concurrencia ejecutadas mediante el script `ConcurrencyTest.ts`.
 
 ### Intento 1 - Estado inicial
 
-- Saldo inicial (Se deposito): 1800
+- Saldo inicial (se depositó): 1800
 - Cada request intenta retirar: 300
 - Total de requests: 7
 - Retiro total teórico: 2100 (lo cual no es posible)
 
 ![Prueba de concurrencia 1](./assets/test1-concurrencia.jpg)
-En este caso en particular 4 operaciones se aplicaron correctamente, 3 fallaron por conflicto de versión. El sistema evitó que múltiples updates usaran la misma versión. Quedo un saldo final coherente de 600.
+En este caso en particular 4 operaciones se aplicaron correctamente, 3 fallaron por conflicto de versión. El sistema evitó que múltiples updates usaran la misma versión. Quedó un saldo final coherente de 600.
 
-#### Intento 2 - segundo teste post intento 1
+### Intento 2 - segundo test posterior al intento 1
 
 - Saldo restante: 600
 - Cada request sigue intentando retirar: 300
 - En este caso, el máximo de extracciones posibles son 2.
 
 ![Prueba de concurrencia 2](./assets/test2-concurrencia.jpg)
-El resultado fue que dos request llegaron cuando todavía habia saldo suficiente, el resto fallo por regla de negocio, no por concurrencia. No hubo conflicto porque ya no habia saldo.
+El resultado fue que dos request llegaron cuando todavía había saldo suficiente, el resto falló por regla de negocio, no por concurrencia. No hubo conflicto porque ya no había saldo.
 
 
 
@@ -124,7 +124,7 @@ El resultado fue que dos request llegaron cuando todavía habia saldo suficiente
 
 - La lógica crítica se centraliza en la capa de servicios, facilitando mantenimiento, pruebas y futuras extensiones del sistema.
 
-- Cree una API mínima, alineada estrictamente al alcance del desafío.
+- Creé una API mínima, alineada estrictamente al alcance del desafío.
 
 - Evité sobre-ingeniería innecesaria para mantener claridad y simplicidad en un desafío acotado.
 
@@ -132,16 +132,16 @@ El resultado fue que dos request llegaron cuando todavía habia saldo suficiente
 
 ## Requisitos del entorno
 
-Para ejecutar el backend se recomienda tener instalado(son las versiones usadas para este backend):
+Para ejecutar el backend se recomienda tener instalado (son las versiones usadas para este backend):
 
 - **Node.js**: v22.21.1
 - **npm**: 10.2.3
 - **MongoDB**: v8.2.1
 - **MongoDB Compass** (opcional, para explorar la base de datos de forma visual)
 
-**Nota**: 
+**Nota**:
  - MongoDB debe estar corriendo localmente en `mongodb://localhost:27017` para que el backend funcione correctamente.
- - La aplicación utiliza la base de datos `peninsula_test` y la collección `accounts`. Si no se crea de forma manual, al iniciar el backend y al crearse la cuenta de prueba, tanto la base de datos como la collección se crearan automáticamente si no existen.
+ - La aplicación utiliza la base de datos `peninsula_test` y la colección `accounts`. Si no se crea de forma manual, al iniciar el backend y al crearse la cuenta de prueba, tanto la base de datos como la colección se crearán automáticamente si no existen.
 
 
 
@@ -154,6 +154,8 @@ Para ejecutar el backend se recomienda tener instalado(son las versiones usadas 
     - `PORT`: puerto del servidor (por defecto `3000`).
 4. Iniciar el servidor: **npm run dev**
 
-Extra - script de concurrencia:
+### Script de concurrencia (opcional)
+
 Con el backend levantado (**npm run dev** en otra terminal) y MongoDB corriendo, ejecutar: **npm run test:concurrency**
+
 El script requiere el backend en ejecución, ya que dispara requests HTTP reales contra `http://localhost:3000/account/`.

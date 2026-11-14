@@ -17,7 +17,7 @@ Para el frontend seleccioné tecnologías que me permitieran construir una inter
 
 - React: Lo elegí por su eficiencia para construir interfaces reactivas y componentes reutilizables. Me permite gestionar estados y actualizar la UI de forma instantánea ante cambios en los datos.
 
-- TypeScript: Principalmente lo usé porque lo pide el enunciado. Asi mismo tambien me parece perfecto para este desafío técnico porque aportar tipado estático y mayor robustez al código, evitando errores que podrían aparecer al ejecutar la app y facilitando entenderlo y mantenerlo.
+- TypeScript: Principalmente lo usé porque lo pide el enunciado. Asimismo, también me parece perfecto para este desafío técnico porque aporta tipado estático y mayor robustez al código, evitando errores que podrían aparecer al ejecutar la app y facilitando entenderlo y mantenerlo.
 
 - React Router: Lo incorporé para poder moverme entre las distintas vistas de manera simple, sin complicaciones, y dejando el proyecto preparado para agregar nuevas pantallas si fuera necesario.
 

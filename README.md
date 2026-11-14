@@ -12,7 +12,7 @@ El proyecto se desarrolló como parte del desafío técnico para evaluar habilid
 **Peninsula-TechnicalTest-Fullstack/**
  - **backend/**: Lógica del servidor, API REST y manejo de concurrencia. Contiene su propio README con instalación, estructura de carpetas, modelo de datos, pruebas de concurrencia y capturas.
  - **frontend/**: Interfaz de usuario, simulación de operaciones y visualización de saldo. Contiene su propio README con descripción de componentes, hooks, rutas, servicios, tema visual y capturas del flujo completo.
- - **README.md**: Descripción generica del proyecto
+ - **README.md**: Descripción genérica del proyecto
 
 
 ## Tecnologías Principales
