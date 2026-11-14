@@ -149,7 +149,10 @@ Para ejecutar el backend se recomienda tener instalado(son las versiones usadas 
 
 1. Estar posicionado en la carpeta backend.
 2. Instalar dependencias: **npm install**
-3. Iniciar el servidor: **npm run dev**
+3. Crear el archivo de variables de entorno copiando el ejemplo: **cp .env.example .env** (en Windows: **copy .env.example .env**). Variables incluidas:
+    - `MONGO_URI`: cadena de conexión a MongoDB (por defecto `mongodb://localhost:27017/peninsula_test`).
+    - `PORT`: puerto del servidor (por defecto `3000`).
+4. Iniciar el servidor: **npm run dev**
 
 Extra:
 Para la ejecucion de scrip de concurrencia por consola: **npx ts-node "./test/ConcurrencyTest.ts"** 

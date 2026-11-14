@@ -75,7 +75,8 @@ La aplicación permite:
 Para levantar la app localmente:
 1) Asegurarse de que el backend esté ejecutándose.
 2) Instalar las dependencias del frontend con `npm install`.
-3) Iniciar la aplicación con `npm run dev`.
+3) Crear el archivo de variables de entorno copiando el ejemplo: `cp .env.example .env` (en Windows: `copy .env.example .env`). Variable incluida: `VITE_API_BASE_URL`, URL base del backend (por defecto `http://localhost:3000/`).
+4) Iniciar la aplicación con `npm run dev`.
 
 
 ## Capturas representativas del flujo del sistema
